@@ -1,34 +1,130 @@
-body {
-  font-family: Arial;
-  text-align: center;
-  background: #f4f6f8;
-}
-
-input {
-  padding: 10px;
-  width: 250px;
-}
-
-button {
-  padding: 6px 10px;
-  margin: 5px;
-  background: #2196f3;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-ul {
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 95%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ===== INPUT SECTION ===== */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.input-section button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+  color: #764ba2;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-section button:hover {
+  background: #f1f1f1;
+}
+
+/* ===== TASK LIST ===== */
+ul {
+  list-style: none;
 }
 
 li {
-  list-style: none;
-  background: white;
-  margin: 10px auto;
-  padding: 10px;
-  width: 350px;
+  background: rgba(255,255,255,0.2);
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
+  animation: fadeIn 0.3s ease-in-out;
+  transition: 0.3s;
+}
+
+li:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  .input-section button {
+    width: 100%;
+  }
 }
